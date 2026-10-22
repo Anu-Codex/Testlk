@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#07090e" />
+  <title>THE RISING STARS | eFootball Mobile Esports</title>
+  
+  <!-- Google Fonts: Orbitron & Rajdhani for Cyber/Futuristic Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyberDark: '#07090e',
+            cyberCard: '#0d1322',
+            neonCyan: '#00f0ff',
+            electricBlue: '#0062ff',
+            cyberGold: '#facc15'
+          },
+          fontFamily: {
+            title: ['Orbitron', 'sans-serif'],
+            body: ['Rajdhani', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-cyberDark text-slate-100 font-body antialiased pb-24 select-none">
+
+  <!-- Glow Overlay Ambient -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-80 h-80 bg-neonCyan/10 blur-[120px] pointer-events-none -z-10 rounded-full"></div>
+  <div class="fixed bottom-20 right-0 w-64 h-64 bg-electricBlue/15 blur-[100px] pointer-events-none -z-10 rounded-full"></div>
+
+  <!-- TOP MOBILE HEADER BAR -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-cyberDark/80 border-b border-neonCyan/20 px-4 py-3">
+    <div class="flex items-center justify-between max-w-md mx-auto">
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-neonCyan to-electricBlue p-0.5 flex items-center justify-center shadow-[0_0_12px_rgba(0,240,255,0.6)]">
+          <span class="font-title font-black text-black text-xs tracking-tighter">TRS</span>
+        </div>
+        <div>
+          <h1 class="font-title font-black text-sm tracking-wider leading-none text-white flex items-center gap-1.5">
+            THE RISING STARS
+            <span class="inline-block w-2 h-2 rounded-full bg-neonCyan animate-ping"></span>
+          </h1>
+          <p class="text-[10px] text-neonCyan tracking-widest font-semibold uppercase">eFootball Elite Crew</p>
+        </div>
+      </div>
+      
+      <!-- Quick Status & Admin Trigger -->
+      <div class="flex items-center space-x-2">
+        <span class="px-2 py-0.5 text-[10px] font-bold uppercase rounded-full bg-neonCyan/10 text-neonCyan border border-neonCyan/40">
+          DIV 1 CLAN
+        </span>
+        <button id="adminAuthBtn" class="text-xs bg-slate-800 hover:bg-slate-700 text-neonCyan p-1.5 rounded-md border border-neonCyan/30">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER (Mobile-First 450px centered container) -->
+  <main class="max-w-md mx-auto px-4 pt-4 space-y-6">
+
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden rounded-2xl p-5 border border-neonCyan/30 bg-gradient-to-b from-cyberCard to-cyberDark shadow-[0_0_20px_rgba(0,98,255,0.15)]">
+      <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-neonCyan/20 rounded-full blur-2xl pointer-events-none"></div>
+      
+      <div class="relative z-10 space-y-3">
+        <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-electricBlue/20 border border-electricBlue/50 text-[11px] text-neonCyan font-bold tracking-wider">
+          ★ SEASON 2026 TOP TIER SQUAD
+        </div>
+
+        <h2 class="text-2xl font-title font-extrabold uppercase leading-tight tracking-wide">
+          DOMINATING THE <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonCyan via-sky-400 to-electricBlue">KONAMI PITCH</span>
+        </h2>
+        
+        <p id="crewMotto" class="text-xs text-slate-300 font-medium tracking-wide">
+          RULING THE VIRTUAL PITCH WITH UNBEATEN COUNTER ATTACKS.
+        </p>
+
+        <!-- Big Win-Rate Highlight Dial -->
+        <div class="grid grid-cols-3 gap-2 pt-2">
+          <div class="bg-black/50 border border-neonCyan/30 p-2.5 rounded-xl text-center">
+            <span class="text-[10px] text-slate-400 uppercase block font-semibold">Win Rate</span>
+            <span id="statWinRate" class="font-title text-xl font-black text-neonCyan">82.4%</span>
+          </div>
+          <div class="bg-black/50 border border-neonCyan/30 p-2.5 rounded-xl text-center">
+            <span class="text-[10px] text-slate-400 uppercase block font-semibold">Matches</span>
+            <span id="statTotalMatches" class="font-title text-xl font-black text-white">450</span>
+          </div>
+          <div class="bg-black/50 border border-neonCyan/30 p-2.5 rounded-xl text-center">
+            <span class="text-[10px] text-slate-400 uppercase block font-semibold">Trophies</span>
+            <span id="statTrophies" class="font-title text-xl font-black text-cyberGold">18 🏆</span>
+          </div>
+        </div>
+
+        <div class="flex gap-2 pt-1">
+          <a id="joinCrewLink" href="#recruitment" class="flex-1 py-2.5 px-4 text-center rounded-xl bg-gradient-to-r from-neonCyan to-electricBlue text-black font-title font-bold text-xs tracking-wider shadow-[0_0_15px_rgba(0,240,255,0.4)] active:scale-95 transition-transform">
+            JOIN ROSTER
+          </a>
+          <a href="#matches" class="flex-1 py-2.5 px-4 text-center rounded-xl bg-slate-900 border border-slate-700 text-neonCyan font-title font-bold text-xs tracking-wider active:scale-95 transition-transform">
+            WAR LOGS
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREW RECORD STRIP -->
+    <section class="bg-cyberCard/70 border border-slate-800 rounded-xl p-3 flex justify-between items-center text-center">
+      <div>
+        <p class="text-[10px] text-slate-400 font-bold uppercase">WINS</p>
+        <p id="statWins" class="text-sm font-title font-extrabold text-neonCyan">371</p>
+      </div>
+      <div class="h-6 w-px bg-slate-800"></div>
+      <div>
+        <p class="text-[10px] text-slate-400 font-bold uppercase">DRAWS</p>
+        <p id="statDraws" class="text-sm font-title font-extrabold text-slate-300">34</p>
+      </div>
+      <div class="h-6 w-px bg-slate-800"></div>
+      <div>
+        <p class="text-[10px] text-slate-400 font-bold uppercase">LOSSES</p>
+        <p id="statLosses" class="text-sm font-title font-extrabold text-red-400">45</p>
+      </div>
+      <div class="h-6 w-px bg-slate-800"></div>
+      <div>
+        <p class="text-[10px] text-slate-400 font-bold uppercase">RANK TIER</p>
+        <p id="statRank" class="text-xs font-title font-extrabold text-cyberGold">TOP 10</p>
+      </div>
+    </section>
+
+    <!-- FEATURED PLAYERS (EFOOTBALL CARDS) -->
+    <section id="squad" class="space-y-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="font-title font-extrabold text-base tracking-wider uppercase text-white flex items-center gap-1.5">
+            <span class="w-1.5 h-4 bg-neonCyan rounded-sm"></span> FEATURED PROS
+          </h3>
+          <p class="text-[11px] text-slate-400 font-semibold">Active Division 1 Roster</p>
+        </div>
+        <span class="text-[11px] font-bold text-neonCyan bg-neonCyan/10 px-2 py-0.5 rounded border border-neonCyan/30">eFootball 2026</span>
+      </div>
+
+      <!-- Player Cards Feed (Dynamic from Backend) -->
+      <div id="playerList" class="space-y-3">
+        <!-- Rendered Dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- RECENT SCRIMS / CLAN WARS -->
+    <section id="matches" class="space-y-3">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="font-title font-extrabold text-base tracking-wider uppercase text-white flex items-center gap-1.5">
+            <span class="w-1.5 h-4 bg-electricBlue rounded-sm"></span> BATTLE RESULTS
+          </h3>
+          <p class="text-[11px] text-slate-400 font-semibold">Live Scrims & Clan Wars</p>
+        </div>
+        <span class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">LATEST 10</span>
+      </div>
+
+      <div id="matchList" class="space-y-2">
+        <!-- Rendered Dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- RECRUITMENT SECTION -->
+    <section id="recruitment" class="p-4 rounded-xl border border-neonCyan/30 bg-cyberCard/90 space-y-3">
+      <h3 class="font-title text-sm font-black uppercase text-neonCyan flex items-center gap-2">
+        <svg class="w-4 h-4 text-neonCyan" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+        </svg>
+        JOIN THE RISING STARS ACADEMY
+      </h3>
+      <p class="text-xs text-slate-300">
+        Think you have what it takes? We require minimum Division 2, 70%+ win rate, and an active WhatsApp/Discord presence.
+      </p>
+      
+      <div class="flex flex-col gap-2 pt-1">
+        <a id="btnDiscord" href="https://discord.gg" target="_blank" class="w-full text-center py-2.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 border border-indigo-500/50 text-indigo-200 text-xs font-bold uppercase tracking-wider">
+          Apply via Discord
+        </a>
+        <a id="btnWhatsapp" href="https://chat.whatsapp.com" target="_blank" class="w-full text-center py-2.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/50 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+          Join WhatsApp Tryout Group
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- MOBILE BOTTOM FLOATING NAVIGATION BAR -->
+  <nav class="fixed bottom-0 left-0 right-0 z-40 bg-cyberDark/95 border-t border-neonCyan/20 backdrop-blur-lg px-6 py-2.5">
+    <div class="max-w-md mx-auto flex items-center justify-around text-slate-400 font-title text-[10px] font-bold tracking-wider">
+      <a href="#" class="flex flex-col items-center text-neonCyan">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        HUB
+      </a>
+      <a href="#squad" class="flex flex-col items-center hover:text-neonCyan transition">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        SQUAD
+      </a>
+      <a href="#matches" class="flex flex-col items-center hover:text-neonCyan transition">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        WARS
+      </a>
+      <button onclick="openAdminModal()" class="flex flex-col items-center text-slate-400 hover:text-neonCyan transition">
+        <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        ADMIN
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== ADMIN DASHBOARD MODAL ==================== -->
+  <div id="adminModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden overflow-y-auto p-4">
+    <div class="max-w-md mx-auto bg-cyberCard border border-neonCyan/40 rounded-2xl p-5 my-6 space-y-4 shadow-[0_0_30px_rgba(0,240,255,0.2)]">
+      
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div>
+          <h3 class="font-title font-black text-sm text-neonCyan tracking-wider">COMMAND CENTER</h3>
+          <p class="text-[10px] text-slate-400">Manage Crew, Players & Matches</p>
+        </div>
+        <button onclick="closeAdminModal()" class="text-slate-400 hover:text-white text-lg font-bold px-2">&times;</button>
+      </div>
+
+      <!-- AUTH SCREEN (IF NOT LOGGED IN) -->
+      <div id="adminLoginSection" class="space-y-3">
+        <label class="block text-xs text-slate-300 font-semibold">Enter Clan Admin Passcode</label>
+        <input type="password" id="adminPasswordInput" placeholder="Passcode (Default: risingstars2026)" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-neonCyan" />
+        <button onclick="performAdminLogin()" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-neonCyan to-electricBlue text-black font-title text-xs font-bold uppercase tracking-wider">
+          AUTHENTICATE
+        </button>
+        <p id="adminLoginError" class="text-[11px] text-red-400 hidden"></p>
+      </div>
+
+      <!-- DASHBOARD CONTROLS (IF LOGGED IN) -->
+      <div id="adminDashboardSection" class="hidden space-y-5">
+        <div class="flex justify-between items-center bg-slate-900/80 p-2 rounded-lg text-xs">
+          <span class="text-emerald-400 font-bold">● Admin Session Active</span>
+          <button onclick="logoutAdmin()" class="text-xs text-red-400 underline font-semibold">Sign Out</button>
+        </div>
+
+        <!-- TABS -->
+        <div class="grid grid-cols-3 gap-1 bg-black/50 p-1 rounded-lg border border-slate-800 text-[10px] font-title font-bold text-center">
+          <button onclick="switchTab('stats')" id="tabBtn-stats" class="py-1.5 rounded bg-neonCyan text-black">CREW STATS</button>
+          <button onclick="switchTab('players')" id="tabBtn-players" class="py-1.5 rounded text-slate-400 hover:text-white">ROSTER</button>
+          <button onclick="switchTab('matches')" id="tabBtn-matches" class="py-1.5 rounded text-slate-400 hover:text-white">MATCHES</button>
+        </div>
+
+        <!-- TAB 1: UPDATE CREW STATS -->
+        <form id="formCrewStats" class="space-y-3 text-xs" onsubmit="handleUpdateStats(event)">
+          <div class="space-y-1">
+            <label class="text-slate-400 font-medium">Clan Motto</label>
+            <input type="text" id="inputMotto" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="text-slate-400 font-medium">Win Rate (%)</label>
+              <input type="number" step="0.1" id="inputWinRate" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs" />
+            </div>
+            <div>
+              <label class="text-slate-400 font-medium">Total Matches</label>
+              <input type="number" id="inputTotalMatches" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs" />
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label class="text-slate-400 font-medium">Wins</label>
+              <input type="number" id="inputWins" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs" />
+            </div>
+            <div>
+              <label class="text-slate-400 font-medium">Draws</label>
+              <input type="number" id="inputDraws" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs" />
+            </div>
+            <div>
+              <label class="text-slate-400 font-medium">Losses</label>
+              <input type="number" id="inputLosses" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs" />
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="text-slate-400 font-medium">Trophies</label>
+              <input type="number" id="inputTrophies" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs" />
+            </div>
+            <div>
+              <label class="text-slate-400 font-medium">Clan Rank</label>
+              <input type="text" id="inputClanDivision" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs" />
+            </div>
+          </div>
+          <button type="submit" class="w-full py-2 bg-neonCyan text-black font-title font-bold text-xs rounded hover:bg-neonCyan/80 transition">
+            SAVE CREW STATS
+          </button>
+        </form>
+
+        <!-- TAB 2: MANAGE PLAYERS -->
+        <div id="tabContentPlayers" class="hidden space-y-4 text-xs">
+          <form id="formAddPlayer" onsubmit="handleAddPlayer(event)" class="space-y-2 bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+            <h4 class="font-title text-neonCyan font-bold">ADD NEW PRO PLAYER</h4>
+            <input type="text" id="pIGN" placeholder="Player IGN (e.g., TRS・TITAN)" required class="w-full bg-slate-950 border border-slate-700 p-1.5 rounded text-white text-xs" />
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" id="pRole" placeholder="Role (e.g. Striker)" required class="w-full bg-slate-950 border border-slate-700 p-1.5 rounded text-white text-xs" />
+              <input type="text" id="pRank" placeholder="Rank (e.g. #30 Global)" required class="w-full bg-slate-950 border border-slate-700 p-1.5 rounded text-white text-xs" />
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <select id="pPlaystyle" class="bg-slate-950 border border-slate-700 p-1.5 rounded text-white text-xs">
+                <option value="Quick Counter">Quick Counter</option>
+                <option value="Possession Game">Possession Game</option>
+                <option value="Long Ball Counter">Long Ball Counter</option>
+                <option value="Out Wide">Out Wide</option>
+              </select>
+              <input type="number" step="0.1" id="pWinRate" placeholder="Win Rate %" required class="w-full bg-slate-950 border border-slate-700 p-1.5 rounded text-white text-xs" />
+            </div>
+            <input type="url" id="pAvatar" placeholder="Avatar Photo URL (Optional)" class="w-full bg-slate-950 border border-slate-700 p-1.5 rounded text-white text-xs" />
+            <button type="submit" class="w-full py-2 bg-electricBlue text-white font-title font-bold text-xs rounded">
+              ENROLL PLAYER
+            </button>
+          </form>
+
+          <div id="adminPlayerList" class="space-y-2 max-h-48 overflow-y-auto pr-1">
+            <!-- List of players with delete buttons -->
+          </div>
+        </div>
+
+        <!-- TAB 3: LOG MATCH RESULTS -->
+        <div id="tabContentMatches" class="hidden space-y-4 text-xs">
+          <form id="formAddMatch" onsubmit="handleAddMatch(event)" class="space-y-2 bg-slate-900/60 p-3 rounded-lg bord
